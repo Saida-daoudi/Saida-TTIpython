@@ -1,0 +1,399 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html, #root {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* MAIN CONTAINER */
+.snap-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* MAIN ROW (IMAGE + CODE) */
+.main-row {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+/* PREVIEW AREA + CODE EDITOR SAME STYLE */
+.code-style {
+  flex: 1;
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  border: 1px solid #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* PREVIEW */
+.preview-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-area img {
+  max-width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.preview-area img:hover {
+  transform: scale(1.02);
+}
+
+.preview-area span {
+  font-size: 20px;
+  color: #ccc;
+}
+
+/* RIGHT BUTTONS */
+.right-buttons {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.right-buttons input[type="file"] {
+  display: none;
+}
+
+.right-buttons label,
+.right-buttons button {
+  background-color: rgba(255,255,255,0.2);
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  transition: 0.2s;
+}
+
+.right-buttons label:hover,
+.right-buttons button:hover {
+  background-color: rgba(255,255,255,0.35);
+}
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 12px;
+  background-color: #222;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  border-top: 2px solid #333;
+}
+
+.filter-bar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filter-bar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.35);
+  border-radius: 4px;
+}
+
+.filter-bar::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.1);
+}
+
+/* FILTER BUTTON */
+.filter-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 100px;
+  background-color: rgba(255,255,255,0.12);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: 0.2s;
+  flex-shrink: 0;
+}
+
+.filter-button:hover {
+  background-color: rgba(255,255,255,0.25);
+}
+
+.filter-button.selected {
+  background-color: rgba(255,255,255,0.38);
+  border-color: #fff;
+}
+
+.filter-button img.filter-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 6px;
+  object-fit: contain;
+}
+
+.filter-button span.filter-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+/* CODE BLOCK */
+.code-block {
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  padding: 20px;
+  margin: auto;
+  margin-right: 45px;
+  border-radius: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  border: 1px solid #333;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background-color: #2d2d30;
+  border-radius: 6px;
+}
+
+.code-header h4, .code-header span {
+  margin: 0;
+  color: #fff;
+}
+
+.code-header button {
+  cursor: pointer;
+  background-color: #0e639c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.code-header button:hover {
+  background-color: #1177bb;
+}
+
+pre {
+  flex: 1;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  font-family: "Fira Code", monospace;
+  background-color: #1e1e1e;
+  color: #dcdcdc;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN ROW */
+/* .main-row {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+  padding: 16px;
+  overflow: hidden;
+} */
+
+/* Preview Area */
+/* .preview-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  position: relative;
+  padding: 16px;
+} */
+
+/* Code Block overlay */
+.code-block {
+  flex: 1;
+  background-color: rgba(0,0,0,0.8); /* شبه شفاف */
+  border-radius: 12px;
+  padding: 20px;
+  color: #dcdcdc;
+  overflow-y: auto;
+  max-height: 65vh; /* نفس height الصورة */
+  display: flex;
+  flex-direction: column;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.code-header button {
+  cursor: pointer;
+  background-color: rgb(109, 109, 109);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.code-header button:hover {
+  background-color:  rgb(93, 93, 93);
+}
+
+pre {
+  margin: 0;
+  overflow-x: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================= */
+/* 📱 MOBILE FIX (ICONS + FILTERS) */
+/* ========================= */
+@media (max-width: 768px) {
+
+  /* main layout */
+  .main-row {
+    flex-direction: column ;
+    background: #000000;
+    padding-bottom: 120px; /* نخلي بلاصة للفلاتر */
+  }
+
+  .flex{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* image */
+  .main-row img {
+    height: 30vh;
+    margin: 0;
+    margin-top: -50px;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  /* code under image */
+  .code-block {
+    max-height: 30vh;
+    width: 100%;
+    margin-top: -40px;
+    margin-right: 0;
+  }
+
+  /* 📌 ICONS: يطلعو شوية للفوق */
+  .right-icons {
+    position: fixed;
+    flex-direction: column;
+    /* gap: 10px;
+     right: 12px;
+    bottom: 130px;  */
+    z-index: 1000;
+  }
+
+  /* 📌 FILTER BAR: تحت الأيقونات */
+  .filter-bar {
+    /* position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column; */
+
+    display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 12px;
+  background-color: #222;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  border-top: 2px solid #333;
+    
+    /* gap: 10px;
+    padding: 10px;
+    overflow-x: auto;
+    background-color: #111;
+    border-top: 1px solid #333;
+    z-index: 999; */
+  }
+
+  /* filters buttons */
+  .filter-button {
+    width: 85px;
+    height: 75px;
+    flex-shrink: 0;
+  }
+
+  .filter-button img.filter-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .filter-button span.filter-name {
+    font-size: 11px;
+  }
+}
