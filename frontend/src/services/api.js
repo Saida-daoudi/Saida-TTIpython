@@ -35,7 +35,6 @@ export async function processImage(file, filter) {
   body: form
 });
 
-
   const data = await res.json();
   return {
     imageUrl: `data:image/jpeg;base64,${data.image}`,
