@@ -30,10 +30,11 @@ export async function processImage(file, filter) {
   form.append("image", file);
   form.append("filter", filter);
 
-  const res = await fetch("http://127.0.0.1:5000/api/process", {
-    method: "POST",
-    body: form
-  });
+  const res = await fetch("/api/process", {
+  method: "POST",
+  body: form
+});
+
 
   const data = await res.json();
   return {
